@@ -1,3 +1,5 @@
+package engine;
+
 // Abstract class that represents something that will be drawn to the screen
 public abstract class Sprite implements Drawable {
    // x coordinate of sprite

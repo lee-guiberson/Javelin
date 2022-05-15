@@ -1,5 +1,6 @@
+package engine;
+
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
 
 // Interface for objects that will take key input
 public interface Controllable  {

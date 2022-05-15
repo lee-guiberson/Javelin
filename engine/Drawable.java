@@ -1,3 +1,5 @@
+package engine;
+
 import java.awt.Graphics;
 
 // Interface for any object that will be drawn to the screen
