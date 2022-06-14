@@ -37,7 +37,7 @@ public class Display {
       f.addKeyListener(input);
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       f.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
-      d = new InnerDisplay(new Dimension(width,height));
+      d = new InnerDisplay(new Dimension(this.width,this.height));
       f.add(d);
       f.pack();
       
