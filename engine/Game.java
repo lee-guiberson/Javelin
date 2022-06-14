@@ -16,15 +16,18 @@ public class Game {
    // Frame time
    private int frameTime = 8;
    // Size of the screen
-   private int width = 850;
-   private int height = 525;
+   private int width;
+   private int height;
    // Title
-   private final String TITLE;
+   private final String title;
    
    // Constructor
-   public Game(String title) {
-      // initialize TITLE
-      TITLE = title;
+   public Game(String title, int width, int height) {
+      // initialize title
+      this.title = title;
+
+      this.width = width;
+      this.height = height;
 
       // initialize the object map
       objects = new HashMap<String, Object>();
@@ -49,7 +52,7 @@ public class Game {
       input = new Input(objects);
       
       // Initialize display
-      display = new Display(objects, input, width, height, title);
+      display = new Display(objects, input, width, height, this.title);
    }
    
    
@@ -83,11 +86,4 @@ public class Game {
    public int[] getDimensions() {
       return new int[]{width,height};
    }
-   
-   // Main function :)
-   public static void main(String[] args) {
-      // Entry point!!!
-      Game g = new Game("a");
-      g.run();
-   } 
 }

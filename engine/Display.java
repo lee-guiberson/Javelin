@@ -16,7 +16,7 @@ public class Display {
    private InnerDisplay d;
 
    // Title of the window
-   private final String TITLE;
+   private final String title;
    
    // Drawables to draw to screeen
    private ArrayList<Drawable> drawables;
@@ -32,8 +32,8 @@ public class Display {
       this.height = height;
    
       // Set up the JFrame
-      TITLE = title;
-      f = new JFrame(TITLE);
+      this.title = title;
+      f = new JFrame(this.title);
       f.addKeyListener(input);
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       f.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
