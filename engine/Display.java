@@ -33,7 +33,7 @@ public class Display {
       this.height = height;
    
       // Set up the JFrame
-      JFrame f = new JFrame(TITLE);
+      f = new JFrame(TITLE);
       f.addKeyListener(input);
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       f.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
