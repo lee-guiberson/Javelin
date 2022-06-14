@@ -1,7 +1,7 @@
 package engine;
 
 // Enum representing the kind of key events
-enum KeyEventType {
+public enum KeyEventType {
    PRESSED,
    RELEASED,
    TYPED
