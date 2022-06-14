@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections; 
 
-
 public class Display {
    // Full framed window 
    private JFrame f;
