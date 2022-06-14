@@ -16,7 +16,7 @@ public class Display {
    private InnerDisplay d;
 
    // Title of the window
-   private final String TITLE = "PONG";
+   private final String TITLE;
    
    // Drawables to draw to screeen
    private ArrayList<Drawable> drawables;
@@ -26,12 +26,13 @@ public class Display {
    private int height;
 
    // Initializes window and then draws first frame
-   public Display(HashMap<String, Object> objects, Input input, int width, int height) {
+   public Display(HashMap<String, Object> objects, Input input, int width, int height, String title) {
       // Assign width and height variables
       this.width = width;
       this.height = height;
    
       // Set up the JFrame
+      TITLE = title;
       f = new JFrame(TITLE);
       f.addKeyListener(input);
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

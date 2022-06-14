@@ -18,9 +18,14 @@ public class Game {
    // Size of the screen
    private int width = 850;
    private int height = 525;
+   // Title
+   private final String TITLE;
    
    // Constructor
-   public Game() {
+   public Game(String title) {
+      // initialize TITLE
+      TITLE = title;
+
       // initialize the object map
       objects = new HashMap<String, Object>();
       
@@ -44,7 +49,7 @@ public class Game {
       input = new Input(objects);
       
       // Initialize display
-      display = new Display(objects, input, width, height);
+      display = new Display(objects, input, width, height, title);
    }
    
    
@@ -82,7 +87,7 @@ public class Game {
    // Main function :)
    public static void main(String[] args) {
       // Entry point!!!
-      Game g = new Game();
+      Game g = new Game("a");
       g.run();
    } 
 }
