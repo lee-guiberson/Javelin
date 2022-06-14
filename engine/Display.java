@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Color; 
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections; 

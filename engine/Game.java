@@ -3,7 +3,6 @@ package engine;
 import java.util.HashMap;
 import java.lang.Thread;
 import java.awt.event.KeyEvent;
-import java.awt.*;
 
 public class Game {
    // All the objects in the game
