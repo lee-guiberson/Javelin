@@ -4,21 +4,31 @@ import java.util.HashMap;
 import java.lang.Thread;
 import java.awt.event.KeyEvent;
 
+/**
+ * Class representing whole game
+ */
 public class Game {
-   // All the objects in the game
+   /** All the objects */
    private HashMap<String, Object> objects;
-   // Screen
+
+   /** Screen */
    private Display display;
-   // Input
+
+   /** Input */
    private Input input;
-   // Whether game is running or not
+   
+   /** Whether game is currently running or not */
    private boolean running;
-   // Frame time
+
+   /** Duration of frame in milliseconds */
    private int frameTime = 8;
-   // Size of the screen
+
+   /** Width of screen */
    private int width;
+   /** Height of screen */
    private int height;
-   // Title
+   
+   /** Title */
    private final String title;
    
    // Constructor
@@ -45,17 +55,16 @@ public class Game {
          }
       });
       
-      // Set running to true     
       running = true;
          
-      // Initialize input
       input = new Input(objects);
       
-      // Initialize display
       display = new Display(objects, input, width, height, this.title);
    }
    
-   
+   /**
+    * Method representing main logic of app
+    */
    public void run() {
       // Game loop
       while(running) {
@@ -64,25 +73,32 @@ public class Game {
          // Update Screen  
          display.updateScreen();
          // Wait between each frame
-         try{ Thread.sleep(frameTime);}
+         try{ Thread.sleep(frameTime); }
          catch(InterruptedException e){}
       }
    }
    
-   // Updates all the states
+   /**
+    * Update the state of all the Updateable objects
+    */
    private void updateStates() {
-      // Update every Updateable object in objects
       for(Object o : objects.values())
             if(o instanceof Updateable)
                ((Updateable)o).update();
    }
    
-   // Returns all of the objects
+   /**
+    * Returns a hashmap of all of the objects
+    * @return Hashmap of all of the objects
+    */
    public HashMap<String, Object> getObjects() {
       return objects;
    }
    
-   // Returns the dimensions of the screen
+   /**
+    * Returns the dimensions of the screen
+    * @return [width, height]
+    */
    public int[] getDimensions() {
       return new int[]{width,height};
    }
