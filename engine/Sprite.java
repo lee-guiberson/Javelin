@@ -33,8 +33,8 @@ public abstract class Sprite implements Drawable {
     */
    private int precedence;
    
-   /** Game */
-   private Game g;
+   /** App */
+   private App a;
       
    /**
     * Constructs sprites
@@ -43,9 +43,9 @@ public abstract class Sprite implements Drawable {
     * @param width      width
     * @param height     height
     * @param precedence precedence(for drawing order)
-    * @param g          game
+    * @param a          app
     */
-   public Sprite(int x, int y, int width, int height, int precedence, Game g) {
+   public Sprite(int x, int y, int width, int height, int precedence, App a) {
       this.x = x;
       this.y = y;
       
@@ -53,13 +53,13 @@ public abstract class Sprite implements Drawable {
       this.height = height;
       
       // Set up screen size
-      int[] dimensions = g.getDimensions();
+      int[] dimensions = this.a.getDimensions();
       this.screenWidth = dimensions[0];
       this.screenHeight = dimensions[1];
       
       this.precedence = precedence;
       
-      this.g = g;
+      this.a = a;
    }
       
    // Coordinates
@@ -128,8 +128,8 @@ public abstract class Sprite implements Drawable {
       return precedence;
    }
    
-   public Game getGame() {
-      return g;
+   public App getGame() {
+      return a;
    }
 
    // Screen

@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.lang.Thread;
 
 /**
- * Class representing whole game
+ * Class representing whole app
  */
-public class Game {
+public class App {
    /** All the objects */
    private HashMap<String, Object> objects;
 
@@ -16,7 +16,7 @@ public class Game {
    /** Input */
    private Input input;
    
-   /** Whether game is currently running or not */
+   /** Whether app is currently running or not */
    private boolean running;
 
    /** Duration of frame in milliseconds */
@@ -31,7 +31,7 @@ public class Game {
    private final String title;
    
    // Constructor
-   public Game(String title, int width, int height) {
+   public App(String title, int width, int height) {
       // initialize title
       this.title = title;
 
@@ -51,8 +51,8 @@ public class Game {
    /**
     * Method representing main logic of app
     */
-   public void run() {
-      // Game loop
+   public void start() {
+      // App loop
       while(running) {
          // Update states
          updateStates();
