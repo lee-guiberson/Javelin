@@ -61,13 +61,39 @@ public abstract class Sprite implements Drawable {
       
       this.g = g;
    }
-   
+      
+   // Coordinates
+
    public int getX() {
       return x;
+   }
+
+   public void setX(int x) {
+      this.x = x;
+   }
+
+   /**
+    * Increment x by dx
+    * @param dx value to increment x by
+    */
+    public void incrementX(int dx) {
+      x += dx;
    }
    
    public int getY() {
       return y;
+   }
+     
+   public void setY(int y) {
+      this.y = y;
+   }
+      
+   /**
+    * Increment y by dy
+    * @param dy value to increment y by
+    */
+   public void incrementY(int dy) {
+      y += dy;
    }
    
    /**
@@ -77,60 +103,42 @@ public abstract class Sprite implements Drawable {
    public int[] getPoint() {
       return new int[]{x, y};
    }
+
+   // Area
       
    public int getWidth() {
       return width;   
+   }
+
+   public void setWidth(int width) {
+      this.width = width;
    }
    
    public int getHeight() {
       return height;
    }
-   
-   public void setX(int x) {
-      this.x = x;
-   }
-   
-   public void setY(int y) {
-      this.y = y;
-   }
-   
-   /**
-    * Increment x by dx
-    * @param dx value to increment x by
-    */
-   public void incrementX(int dx) {
-      x += dx;
-   }
-   
-   /**
-    * Increment y by dy
-    * @param dy value to increment y by
-    */
-   public void incrementY(int dy) {
-      y += dy;
-   }
-   
-   public void setWidth(int width) {
-      this.width = width;
-   }
-   
+
    public void setHeight(int height)  {
       this.height = height;
    }
    
-   public int getScreenWidth() {
-      return screenWidth;
-   }
-   
-   public int getScreenHeight() {
-      return screenHeight;
-   }
-   
+   // Misc
+
    public int getPrecedence() {
       return precedence;
    }
    
    public Game getGame() {
       return g;
+   }
+
+   // Screen
+
+   public int getScreenWidth() {
+      return screenWidth;
+   }
+   
+   public int getScreenHeight() {
+      return screenHeight;
    }
 }
