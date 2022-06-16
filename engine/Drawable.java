@@ -2,13 +2,21 @@ package engine;
 
 import java.awt.Graphics;
 
-// Interface for any object that will be drawn to the screen
+/**
+ * Interface for any object that will be drawn to the screen  
+ */ 
 public interface Drawable {
-   // Function that will draw the Drawable object onto the screen
+   /**
+    * Method that draws the Drawable object onto the screen
+    * @param g
+    */
    void draw(Graphics g);
    
-   // Returns the precedence of the Drawable object
-   // A higher precedence means that it will appear in front
-   // if Drawable objects are overlapping
+   /**
+    * Method that returns precedence
+    * Drawable objects with higher precedence
+    * will be drawn on screen last.
+    * @return precedence
+    */
    int getPrecedence();
 }
