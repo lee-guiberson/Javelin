@@ -21,7 +21,6 @@ public abstract class Sprite implements Drawable {
    /** Height of sprite */
    private int height;
    
-   // Maybe should be static?
    /** Width of the screen in pixels */
    private int screenWidth;
    /** Height of the screen in pixels */
@@ -52,14 +51,14 @@ public abstract class Sprite implements Drawable {
       this.width = width;
       this.height = height;
       
+      this.a = a;
+
       // Set up screen size
       int[] dimensions = this.a.getDimensions();
       this.screenWidth = dimensions[0];
       this.screenHeight = dimensions[1];
       
       this.precedence = precedence;
-      
-      this.a = a;
    }
       
    // Coordinates
