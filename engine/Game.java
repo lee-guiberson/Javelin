@@ -42,19 +42,6 @@ public class Game {
       // initialize the object map
       objects = new HashMap<String, Object>();
       
-      // Anonymous object letting user exit
-      objects.put("exit", new Controllable() {
-         // Get inputs
-         public int[] getInputs() {
-            return new int[]{KeyEvent.VK_E};
-         }
-         // Register input
-         public void registerInput(KeyEvent e, KeyEventType t) {
-            // If e is released, exit application            
-            if(e.getKeyCode() == KeyEvent.VK_E && t.equals(KeyEventType.RELEASED)) System.exit(0);
-         }
-      });
-      
       running = true;
          
       input = new Input(objects);
@@ -74,7 +61,7 @@ public class Game {
          display.updateScreen();
          // Wait between each frame
          try{ Thread.sleep(frameTime); }
-         catch(InterruptedException e){}
+         catch(InterruptedException e){ System.err.println(e); }
       }
    }
    
