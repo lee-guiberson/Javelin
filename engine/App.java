@@ -82,14 +82,6 @@ public class App {
    }
    
    /**
-    * Returns the dimensions of the screen
-    * @return [width, height]
-    */
-   public int[] getDimensions() {
-      return new int[]{width,height};
-   }
-
-   /**
     * Adds an object to the app
     * @param name Name of object
     * @param o    Object
