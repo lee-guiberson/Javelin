@@ -42,16 +42,17 @@ public class App {
       objects = new HashMap<String, Object>();
       
       running = true;
-         
-      input = new Input(objects);
-      
-      display = new Display(objects, input, width, height, this.title);
    }
    
    /**
     * Method representing main logic of app
     */
    public void start() {
+         
+      input = new Input(objects);
+      
+      display = new Display(objects, input, width, height, this.title);
+
       // App loop
       while(running) {
          // Update states
