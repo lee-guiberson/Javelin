@@ -22,9 +22,9 @@ public abstract class Sprite implements Drawable {
    protected int height;
    
    /** Width of the screen in pixels */
-   protected int screenWidth;
+   protected static int screenWidth;
    /** Height of the screen in pixels */
-   protected int screenHeight;
+   protected static int screenHeight;
    
    /** 
     * Integer for drawing order.
@@ -52,11 +52,6 @@ public abstract class Sprite implements Drawable {
       this.height = height;
       
       this.a = a;
-
-      // Set up screen size
-      int[] dimensions = this.a.getDimensions();
-      this.screenWidth = dimensions[0];
-      this.screenHeight = dimensions[1];
       
       this.precedence = precedence;
    }
@@ -139,5 +134,10 @@ public abstract class Sprite implements Drawable {
    
    public int getScreenHeight() {
       return screenHeight;
+   }
+
+   public static void setScreenDimensions(int screenWidth, int screenHeight) {
+      Sprite.screenWidth = screenWidth;
+      Sprite.screenHeight = screenHeight;
    }
 }

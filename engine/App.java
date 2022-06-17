@@ -37,6 +37,8 @@ public class App {
       this.width = width;
       this.height = height;
 
+      Sprite.setScreenDimensions(width, height);
+
       objects = new HashMap<String, Object>();
    }
    
