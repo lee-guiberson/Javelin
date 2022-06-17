@@ -89,4 +89,8 @@ public class App {
    public int[] getDimensions() {
       return new int[]{width,height};
    }
+
+   public void add(String name, Object o) {
+      objects.put(name, o);
+   }
 }
