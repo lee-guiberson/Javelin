@@ -83,14 +83,6 @@ public abstract class Sprite implements Drawable {
    public void incrementY(int dy) {
       y += dy;
    }
-   
-   /**
-    * Gets both x and y coordinates
-    * @return [x, y] 
-    */
-   public int[] getPoint() {
-      return new int[]{x, y};
-   }
 
    // Area
       
