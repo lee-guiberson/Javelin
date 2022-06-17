@@ -34,14 +34,112 @@ class Circle extends Sprite {
         super(x, y, width, height);
     }
 
-    public Draw(Graphics g)  {
+    public void Draw(Graphics g)  {
         g.fillOval(x, y, width, height);
     }
 }
 ```
-Firstly, `extends Sprite` is used to indicate that Circle is a sprite. In the constructor, `super(x, y, width, height);` passes the coordinates and size to the Sprite class so that the fields can be used later on. Every sprite must also implement the `draw(Graphics g)`, which where the code to draw the sprite will be located. The `draw()` method is called every frame. Here, we draw a circle through `g.fillOval(x, y, width, height);` Notice how we can access `x`, `y`, `width`, and `height`. <br>
+Firstly, `extends Sprite` is used to indicate that Circle is a sprite. In the constructor, `super(x, y, width, height);` passes the coordinates and size to the Sprite class so that the fields can be used later on. Every sprite must also implement the `draw(Graphics g)`, which where the code to draw the sprite will be located. The `draw()` method is called every frame. Here, we draw a circle through `g.fillOval(x, y, width, height);` Notice how we can access `x`, `y`, `width`, and `height`.
+
 Now that we have create a circle class, we can a circle to the screen through adding:
 ```java
-a.add("mycircle", new Circle(0, 0, 10, 10));
+a.add("mycircle", new Circle(50, 100, 30, 30));
 ```
 before we start the app. Now a circle should a appear on the screen.
+### Updateable interface
+Some sprites have states which change everyframe, which means that they should implement the `updateable` interface. For instance, to make our circle move, we would do this:
+```java
+class Circle extends Sprite implements Updateable {
+    private int dx = 2;
+    private int dy = 6;
+
+    public Circle(int x, int y, int width, int height) {
+        super(x, y, width, height);
+    }
+
+    public void draw(Graphics g)  {
+        g.fillOval(x, y, width, height);
+    }
+
+    public void update() {
+        x += dx;
+        y += dy;
+        if(x < 0 || x + width > screenWidth) {
+            dx *= -1;
+        }
+        if(y < 0 || y + height > screenHeight) {
+            dy *= -1;
+        }
+    }
+}
+```
+The `update()` method is called every frame and should update the state of the circle. Here we are updating the circle's position by `dx` and `dy` and also checking for collisions. If there is a collision, then we change `dx` or `dy`. We can also access the screen width and height with `screenWidth` and `screenHeight` from within any class that extends Sprite.
+### Controllable interface
+Any sprite that responds to input should implement the `Controllable` interface. If we implement the controllabe interface, we must define two methods: `getInputs()` and `registerInput()` Let's say we want the circle to stop when we hit the space bar. Then we would add `Controllabe` to the class signature and add the following two methods:
+```java
+public int[] getInputs() {
+    return new int[]{KeyEvent.VK_SPACE};
+}
+
+public void registerInput(KeyEvent e, KeyEventType type) {
+    if(e.getKeyCode() == KeyEvent.VK_SPACE && type.equals(KeyEventType.RELEASED)) {
+        dx = 0;
+        dy = 0;
+    }
+}
+```
+`getInputs()` returns an array of the keycodes that the sprite responds to while `registerInput()` is called whenever one of the keys corresponding to the keycodes returned from `getInputs()` is pressed, released or typed. Here, when space is released, we make the ball stop moving. The three type of keyevent are represented by `PRESSED`, `RELEASED`, and `TYPED`.
+
+Congratulations! You finished the tutorial!
+
+Here is the finished code:
+```java
+import engine.*;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.Color;
+
+public class Main {
+    public static void main(String[] args) {
+        App a = new App("My first app", 400, 400);
+        a.add("mycircle", new Circle(50,100,30,30));
+        a.start();
+    }
+}
+
+class Circle extends Sprite implements Updateable, Controllable {
+    private int dx = 2;
+    private int dy = 6;
+
+    public Circle(int x, int y, int width, int height) {
+        super(x, y, width, height);
+    }
+
+    public void draw(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillOval(x, y, width, height);
+    }
+
+    public void update() {
+        x += dx;
+        y += dy;
+        if(x < 0 || x + width > screenWidth) {
+            dx *= -1;
+        }
+        if(y < 0 || y + height > screenHeight) {
+            dy *= -1;
+        }
+    }
+
+    public int[] getInputs() {
+        return new int[]{KeyEvent.VK_SPACE};
+    }
+
+    public void registerInput(KeyEvent e, KeyEventType type) {
+        if(e.getKeyCode() == KeyEvent.VK_SPACE && type.equals(KeyEventType.RELEASED)) {
+            dx = 0;
+            dy = 0;
+        }
+    }
+}
+```
