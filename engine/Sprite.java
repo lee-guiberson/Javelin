@@ -9,31 +9,31 @@ public abstract class Sprite implements Drawable {
     * x coordinate of sprite
     * (coordinate is for upper left most point)
     */
-   private int x;
+   protected int x;
    /** 
     * y coordinate of sprite 
     * (coordinate is for upper left most point)
     */
-   private int y;
+   protected int y;
    
    /** Width of sprite */
-   private int width;
+   protected int width;
    /** Height of sprite */
-   private int height;
+   protected int height;
    
    /** Width of the screen in pixels */
-   private int screenWidth;
+   protected int screenWidth;
    /** Height of the screen in pixels */
-   private int screenHeight;
+   protected int screenHeight;
    
    /** 
     * Integer for drawing order.
     * Sprites with higher precedence will be drawn onto the screen later
     */
-   private int precedence;
+   protected int precedence;
    
    /** App */
-   private App a;
+   protected App a;
       
    /**
     * Constructs sprites
