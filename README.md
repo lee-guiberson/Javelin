@@ -1,4 +1,4 @@
-# 
+# Placeholder name
 A lightweight java framework for simple games and animations for beginners 
 ## Basic Tutorial
 Create a new folder and place the directory *engine* into it  
