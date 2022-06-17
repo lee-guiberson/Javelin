@@ -1,5 +1,5 @@
 # Placeholder name
-A lightweight java framework for simple games and animations for beginners 
+A lightweight java framework for simple games and animations that's perfect for learning 
 ## Basic Tutorial
 This tutorial will teach the basics of the library and will create a ball that will
 bounce around the screen and respond to user input. <br>
