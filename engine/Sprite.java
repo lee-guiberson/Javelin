@@ -117,6 +117,10 @@ public abstract class Sprite implements Drawable {
       return precedence;
    }
 
+   public void setPrecedence(int precedence) {
+      this.precedence = precedence;
+   }
+
    // Screen
 
    public int getScreenWidth() {
