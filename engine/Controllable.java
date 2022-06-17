@@ -2,12 +2,21 @@ package engine;
 
 import java.awt.event.KeyEvent;
 
-// Interface for objects that will take key input
+/**
+ * Interface for any object that responds to key presses
+ */
 public interface Controllable  {
-   // Function that will run any time a key in getInputs()
-   // is typed. Contains logic for all the key presses 
+   /**
+    * Method that will run whenver a key is pressed
+    * and is also returned from getInput()
+    * @param e    keyevent triggered
+    * @param type KeyEvent type
+    */ 
    void registerInput(KeyEvent e, KeyEventType type);
    
-   // Return the key codes that the Controllable object will use
+  /**
+   * Returns the key codes that will trigger registerInput() 
+   * @return keycodes   
+   */
    int[] getInputs();
 }

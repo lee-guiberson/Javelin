@@ -1,137 +1,145 @@
 package engine;
 
-// Abstract class that represents something that will be drawn to the screen
+/**
+ * Abstract class that represents generic object drawn to screen
+ */
 public abstract class Sprite implements Drawable {
-   // x coordinate of sprite
-   private int x;
-   // y coordinate of sprite
-   private int y;
+   // Coordinates
+   /** 
+    * x coordinate of sprite
+    * (coordinate is for upper left most point)
+    */
+   protected int x;
+   /** 
+    * y coordinate of sprite 
+    * (coordinate is for upper left most point)
+    */
+   protected int y;
    
-   // Width of sprite
-   private int width;
-   // Height of sprite
-   private int height;
+   /** Width of sprite */
+   protected int width;
+   /** Height of sprite */
+   protected int height;
    
-   // The width of the screen
-   private int screenWidth;
-   // The height of the screen
-   private int screenHeight;
+   /** Width of the screen in pixels */
+   protected static int screenWidth;
+   /** Height of the screen in pixels */
+   protected static int screenHeight;
    
-   // The precedence of the sprite for drawing order
-   private int precedence;
-   
-   // Game
-   private Game g;
-      
-   // Constructor
-   public Sprite(int x, int y, int width, int height, int precedence, Game g) {
-      // Set up coordinates
+   /** 
+    * Integer for drawing order.
+    * Sprites with higher precedence will be drawn onto the screen later
+    * Default value is 0.
+    */
+   protected int precedence = 0;
+         
+   /**
+    * Constructs sprites
+    * @param x          x-coordinate
+    * @param y          y-coordinate
+    * @param width      width
+    * @param height     height
+    * @param precedence precedence(for drawing order)
+    */
+   public Sprite(int x, int y, int width, int height, int precedence) {            
+      this(x, y, width, height);
+      this.precedence = precedence;
+   }
+
+   /**
+    * Constructs sprites
+    * @param x          x-coordinate
+    * @param y          y-coordinate
+    * @param width      width
+    * @param height     height
+    */
+   public Sprite(int x, int y, int width, int height) {
       this.x = x;
       this.y = y;
       
-      // Set up area
       this.width = width;
       this.height = height;
-      
-      // Set up screen size
-      int[] dimensions = g.getDimensions();
-      this.screenWidth = dimensions[0];
-      this.screenHeight = dimensions[1];
-      
-      // Set up precedence
-      this.precedence = precedence;
-      
-      // Set up game
-      this.g = g;
    }
-   
-   // Get x
+
+   // Coordinates
+
    public int getX() {
       return x;
    }
-   
-   // Get y
-   public int getY() {
-      return y;
-   }
-   
-   // Get coordinates
-   public int[] getPoint() {
-      return new int[]{x, y};
-   }
-   
-   // Get center x
-   public int getCenterX() {
-      return x/2;
-   }
-   
-   // Get center y
-   public int getCenterY() {
-      return y/2;
-   }
-   
-   // Get center point
-   public int[] getCenterPoint() {
-      return new int[]{x/2, y/2};
-   }
-   
-   // Get width
-   public int getWidth() {
-      return width;   
-   }
-   
-   // Get height
-   public int getHeight() {
-      return height;
-   }
-   
-   // Set x
+
    public void setX(int x) {
       this.x = x;
    }
-   
-   // Set y
-   public void setY(int y) {
-      this.y = y;
-   }
-   
-   // Increment x
-   public void incrementX(int dx) {
+
+   /**
+    * Increment x by dx
+    * @param dx value to increment x by
+    */
+    public void incrementX(int dx) {
       x += dx;
    }
    
-   // Increment y
+   public int getY() {
+      return y;
+   }
+     
+   public void setY(int y) {
+      this.y = y;
+   }
+      
+   /**
+    * Increment y by dy
+    * @param dy value to increment y by
+    */
    public void incrementY(int dy) {
       y += dy;
    }
-   
-   // Set width
+
+   public void setCoordinates(int x, int y) {
+      this.x = x;
+      this.y = y;
+   }
+
+   // Area
+      
+   public int getWidth() {
+      return width;   
+   }
+
    public void setWidth(int width) {
       this.width = width;
    }
    
-   // Set height
+   public int getHeight() {
+      return height;
+   }
+
    public void setHeight(int height)  {
       this.height = height;
    }
    
-   // Get screen width
+   // Misc
+
+   public int getPrecedence() {
+      return precedence;
+   }
+
+   public void setPrecedence(int precedence) {
+      this.precedence = precedence;
+   }
+
+   // Screen
+
    public int getScreenWidth() {
       return screenWidth;
    }
    
-   // Get screen height
    public int getScreenHeight() {
       return screenHeight;
    }
-   
-   // Get precedence
-   public int getPrecedence() {
-      return precedence;
-   }
-   
-   // Get game
-   public Game getGame() {
-      return g;
+
+   public static void setScreenDimensions(int screenWidth, int screenHeight) {
+      Sprite.screenWidth = screenWidth;
+      Sprite.screenHeight = screenHeight;
    }
 }

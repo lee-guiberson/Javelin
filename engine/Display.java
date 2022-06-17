@@ -5,40 +5,50 @@ import javax.swing.JPanel;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Color; 
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collections; 
 
-
-public class Display {
-   // Full framed window 
+/**
+ * Class to handle display
+ */
+class Display {
+   /** Full framed window (with title bar) */
    private JFrame f;
-   // Inner window
+   /** Screen (without title bar) */
    private InnerDisplay d;
 
-   // Title of the window
-   private final String TITLE = "PONG";
+   /** Title that will be displayed on title bar */
+   private final String title;
    
-   // Drawables to draw to screeen
+   /** All the Drawable objects */
    private ArrayList<Drawable> drawables;
    
-   // The width and height of the screen
+   /** Screen width */
    private int width;
+   /** Screen height */
    private int height;
 
-   // Initializes window and then draws first frame
-   public Display(HashMap<String, Object> objects, Input input, int width, int height) {
+   /**
+    * Constructor for display
+    * @param objects A hashmap of objects
+    * @param input   Input object
+    * @param width   Screen width
+    * @param height  Screen height
+    * @param title   Title
+    */
+   public Display(HashMap<String, Object> objects, Input input, int width, int height, String title) {
       // Assign width and height variables
       this.width = width;
       this.height = height;
    
       // Set up the JFrame
-      JFrame f = new JFrame(TITLE);
+      this.title = title;
+      f = new JFrame(this.title);
       f.addKeyListener(input);
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       f.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
-      d = new InnerDisplay(new Dimension(width,height));
+      d = new InnerDisplay(new Dimension(this.width,this.height));
       f.add(d);
       f.pack();
       
@@ -61,7 +71,9 @@ public class Display {
       f.setVisible(true);
    }
    
-   // Represents the inner window 
+   /**
+    * Screen (without title bar)
+    */
    private class InnerDisplay extends JPanel {  
       // Initialize by calling super and setting size of window
       public InnerDisplay(Dimension d) {
@@ -69,10 +81,12 @@ public class Display {
          setPreferredSize(d);
       }
       
-      // Paints all the drawables
+      /**
+       * Draws all the Drawable objects to screen
+       * @param g Graphics object
+       */
       @Override
       public void paintComponent(Graphics g) {
-         // paint all of the drawables to screen
          super.paintComponent(g);
          for(Drawable d : drawables) {
             d.draw(g);
@@ -80,7 +94,7 @@ public class Display {
       }
    }
    
-   // Repaint the screen
+   /** Repaint the screen */
    public void updateScreen() {
       d.repaint();
    }
