@@ -31,10 +31,7 @@ public abstract class Sprite implements Drawable {
     * Sprites with higher precedence will be drawn onto the screen later
     */
    protected int precedence;
-   
-   /** App */
-   protected App a;
-      
+         
    /**
     * Constructs sprites
     * @param x          x-coordinate
@@ -42,17 +39,14 @@ public abstract class Sprite implements Drawable {
     * @param width      width
     * @param height     height
     * @param precedence precedence(for drawing order)
-    * @param a          app
     */
-   public Sprite(int x, int y, int width, int height, int precedence, App a) {
+   public Sprite(int x, int y, int width, int height, int precedence) {
       this.x = x;
       this.y = y;
       
       this.width = width;
       this.height = height;
-      
-      this.a = a;
-      
+            
       this.precedence = precedence;
    }
       
@@ -120,10 +114,6 @@ public abstract class Sprite implements Drawable {
 
    public int getPrecedence() {
       return precedence;
-   }
-   
-   public App getGame() {
-      return a;
    }
 
    // Screen
