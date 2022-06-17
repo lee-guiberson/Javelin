@@ -1,4 +1,4 @@
-# Placeholder name
+# Javelin
 A lightweight java framework for simple games and animations that's perfect for learning 
 ## Basic Tutorial
 This tutorial will teach the basics of the library and will create a ball that will
