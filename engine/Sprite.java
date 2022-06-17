@@ -46,6 +46,13 @@ public abstract class Sprite implements Drawable {
       this.precedence = precedence;
    }
 
+   /**
+    * Constructs sprites
+    * @param x          x-coordinate
+    * @param y          y-coordinate
+    * @param width      width
+    * @param height     height
+    */
    public Sprite(int x, int y, int width, int height) {
       this.x = x;
       this.y = y;
@@ -53,7 +60,7 @@ public abstract class Sprite implements Drawable {
       this.width = width;
       this.height = height;
    }
-      
+
    // Coordinates
 
    public int getX() {
