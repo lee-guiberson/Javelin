@@ -12,7 +12,7 @@ import java.util.Collections;
 /**
  * Class to handle display
  */
-public class Display {
+class Display {
    /** Full framed window (with title bar) */
    private JFrame f;
    /** Screen (without title bar) */

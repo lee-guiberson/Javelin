@@ -5,7 +5,7 @@ import java.awt.Graphics;
 /**
  * Interface for any object that will be drawn to the screen  
  */ 
-public interface Drawable {
+interface Drawable {
    /**
     * Method that draws the Drawable object onto the screen
     * @param g

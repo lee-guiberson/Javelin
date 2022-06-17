@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 /**
  * Class that handles all of the input
  */
-public class Input implements KeyListener {
+class Input implements KeyListener {
    /** Hash map of keycodes to objects that they affect  */
    HashMap<Integer, ArrayList<Controllable>> keysToControllables;
 
