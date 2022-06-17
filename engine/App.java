@@ -82,6 +82,16 @@ public class App {
    }
    
    /**
+    * Returns object of given key
+    * @param name Name of object
+    * @return     Object corresponding to name. 
+    *             Null if doesn't exist
+    */
+   public Object get(String name) {
+      return objects.get(name);
+   }
+
+   /**
     * Adds an object to the app
     * @param name Name of object
     * @param o    Object
