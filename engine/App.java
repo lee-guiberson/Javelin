@@ -32,16 +32,12 @@ public class App {
    
    // Constructor
    public App(String title, int width, int height) {
-      // initialize title
       this.title = title;
 
       this.width = width;
       this.height = height;
 
-      // initialize the object map
       objects = new HashMap<String, Object>();
-      
-      running = true;
    }
    
    /**
@@ -51,9 +47,10 @@ public class App {
          
       input = new Input(objects);
       
-      display = new Display(objects, input, width, height, this.title);
+      display = new Display(objects, input, width, height, title);
 
       // App loop
+      running = true;
       while(running) {
          // Update states
          updateStates();
@@ -90,6 +87,11 @@ public class App {
       return new int[]{width,height};
    }
 
+   /**
+    * Adds an object to the app
+    * @param name Name of object
+    * @param o    Object
+    */
    public void add(String name, Object o) {
       objects.put(name, o);
    }
