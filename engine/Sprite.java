@@ -84,6 +84,11 @@ public abstract class Sprite implements Drawable {
       y += dy;
    }
 
+   public void setCoordinates(int x, int y) {
+      this.x = x;
+      this.y = y;
+   }
+
    // Area
       
    public int getWidth() {
