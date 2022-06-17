@@ -29,8 +29,9 @@ public abstract class Sprite implements Drawable {
    /** 
     * Integer for drawing order.
     * Sprites with higher precedence will be drawn onto the screen later
+    * Default value is 0.
     */
-   protected int precedence;
+   protected int precedence = 0;
          
    /**
     * Constructs sprites
@@ -40,14 +41,17 @@ public abstract class Sprite implements Drawable {
     * @param height     height
     * @param precedence precedence(for drawing order)
     */
-   public Sprite(int x, int y, int width, int height, int precedence) {
+   public Sprite(int x, int y, int width, int height, int precedence) {            
+      this(x, y, width, height);
+      this.precedence = precedence;
+   }
+
+   public Sprite(int x, int y, int width, int height) {
       this.x = x;
       this.y = y;
       
       this.width = width;
       this.height = height;
-            
-      this.precedence = precedence;
    }
       
    // Coordinates
